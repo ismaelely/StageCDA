@@ -1,0 +1,44 @@
+<!-- =======================
+Courses START -->
+<section class="pt-0 pt-sm-5">
+    <div class="container">
+        <!-- Title -->
+        <div class="row mb-4">
+            <div class="col-12 text-center mx-auto">
+                <h2 class="h1 mb-0">Nos formations</h2>
+                <p class="mb-0">Vous trouverez les formations proposes</p>
+
+            </div>
+        </div>
+
+        <!-- Courses START -->
+        <div class="row">
+            <!-- Slider START -->
+            <div class="tiny-slider arrow-hover arrow-blur arrow-round">
+                <div class="tiny-slider-inner" data-arrow="true" data-dots="false" data-items-xl="4" data-items-lg="3" data-items-md="2" data-items-xs="1" data-autoplay="2000">
+
+                    <!-- Course item (formations entreprise) -->
+                    {% for formations in formations %}
+                    <div>
+                        <div class="card text-center bg-transparent">
+                            <!-- Image -->
+                            <img src="assets/images/courses/4by3/23.jpg" class="card-img" alt="Course img">
+
+                            <!-- Card body -->
+                            <div class="card-body px-2">
+                                <h5 class="card-title">{{ formations.title }}</h5>
+                                <a href="#" class="btn btn-sm btn-danger mb-0">+ d'info</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+            <!-- Slider END -->
+        </div>
+        <!-- Courses END -->
+    </div>
+</section>
+<!-- =======================
+Courses END -->
