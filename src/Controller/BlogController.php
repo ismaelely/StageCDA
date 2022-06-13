@@ -24,7 +24,7 @@ class BlogController extends AbstractController
         $blogs = $paginator->paginate(
             $data,
             $request->query->getInt('page', 1),
-            6
+            8
         );
 
 
