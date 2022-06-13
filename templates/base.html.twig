@@ -29,7 +29,11 @@
 <body>
 <header>{% include('inc/header.html.twig') %}</header>
 
-<main>{% block body %}{% endblock %}</main>
+<main>
+    {% block body %}{% endblock %}
+</main>
+<!-- Back to top -->
+<div class="back-top"><i class="bi bi-arrow-up-short position-absolute top-50 start-50 translate-middle"></i></div>
 <footer>{% include('inc/foot.html.twig') %}</footer>
 {% block javascripts %}
     <!-- Bootstrap JS -->
