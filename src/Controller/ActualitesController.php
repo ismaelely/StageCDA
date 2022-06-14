@@ -24,7 +24,7 @@ class ActualitesController extends AbstractController
         $actualites = $paginator->paginate(
             $data,
             $request->query->getInt('page', 1),
-            6
+            9
         );
 
 
