@@ -27,29 +27,26 @@ Faqs START -->
                     </svg>
                 </figure>
 
-
-                {% for key, FAQs in FAQs %}
-
                 <!-- FAQ START -->
-                <div class="accordion accordion-icon accordion-shadow mt-4 text-start position-relative" id="accordionExample2{{ key }}">
+                <div class="accordion accordion-icon accordion-shadow mt-4 text-start position-relative" id="accordionExample2">
+
+                    {% for key, FAQs in FAQs %}
                     <!-- Item -->
-                    <div class="accordion-item mb-3">
-                        <h6 class="accordion-header font-base" id="heading-1{{ key }}">
-                            <button class="accordion-button fw-bold rounded collapsed pe-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-1{{ key }}" aria-expanded="true" aria-controls="collapse-1{{ key }}">
+                    <div class="accordion-item">
+                        <h6 class="accordion-header font-base" id="heading-3{{ key }}">
+                            <button class="accordion-button fw-bold collapsed rounded pe-5" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapse-3{{ key }}" aria-expanded="false" aria-controls="collapse-3">
                                 {{ FAQs.question }}
                             </button>
                         </h6>
                         <!-- Body -->
-                        <div id="collapse-1{{ key }}" class="accordion-collapse collapse show" aria-labelledby="heading-1" data-bs-parent="#accordionExample2{{ key }}">
+                        <div id="collapse-3{{ key }}" class="accordion-collapse collapse" aria-labelledby="heading-3" data-bs-parent="#accordionExample2{{ key }}">
                             <div class="accordion-body mt-3">
                                 {{ FAQs.reponse }}
                             </div>
                         </div>
                     </div>
                     {% endfor %}
-
-
-
                 </div>
                 <!-- FAQ END -->
             </div>

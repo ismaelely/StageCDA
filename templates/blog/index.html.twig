@@ -65,14 +65,14 @@
                             <div class="bg-overlay bg-dark opacity-4"></div>
                             <div class="card-img-overlay d-flex align-items-start p-3">
                                 <!-- badge -->
-                                <a href="#" class="badge bg-orange text-white">Blog</a>
+                                <a class="badge bg-orange text-white">Blog</a>
                             </div>
                         </div>
 
                         <!-- Card body -->
                         <div class="card-body">
                             <!-- Title -->
-                            <h5 class="card-title"><a href="#">{{ blog.title|u.truncate(30, '...', false) }}</a></h5>
+                            <h5 class="card-title"><a  href=" {{ path('detail_blog',{'id':blog.id}) }}">{{ blog.title|u.truncate(30, '...', false) }}</a></h5>
                             <p>{{ blog.description|u.truncate(120, '...', false)  }}</p>
                             <!-- Info -->
                             <div class="d-flex justify-content-between">

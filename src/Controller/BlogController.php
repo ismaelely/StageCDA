@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Repository\BlogRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -31,5 +32,16 @@ class BlogController extends AbstractController
         return $this->render('blog/index.html.twig', [
             'blogs' => $blogs,
         ]);
+    }
+
+
+    /**
+     * @Route("/blogs/{id}", name="detail_blog")
+     */
+    public function details(int $id ,BlogRepository $blogRepository,EntityManagerInterface $entityManager, Request $request): Response
+    {
+        $blogs= $blogRepository->find($id);
+
+        return $this->render('blog/detail_blog.html.twig',["blogs"=>$blogs]);
     }
 }
