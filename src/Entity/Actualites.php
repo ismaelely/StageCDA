@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ActualitesRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -36,6 +38,22 @@ class Actualites
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="actualites")
      */
     private $parent;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Images::class, mappedBy="actualites")
+     */
+    private $images;
+
+    /**
+     * @ORM\OneToMany(targetEntity=CommentsActu::class, mappedBy="actu")
+     */
+    private $commentsActus;
+
+    public function __construct()
+    {
+        $this->images = new ArrayCollection();
+        $this->commentsActus = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -86,6 +104,66 @@ class Actualites
     public function setParent(?User $parent): self
     {
         $this->parent = $parent;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Images>
+     */
+    public function getImages(): Collection
+    {
+        return $this->images;
+    }
+
+    public function addImage(Images $image): self
+    {
+        if (!$this->images->contains($image)) {
+            $this->images[] = $image;
+            $image->setActualites($this);
+        }
+
+        return $this;
+    }
+
+    public function removeImage(Images $image): self
+    {
+        if ($this->images->removeElement($image)) {
+            // set the owning side to null (unless already changed)
+            if ($image->getActualites() === $this) {
+                $image->setActualites(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, CommentsActu>
+     */
+    public function getCommentsActus(): Collection
+    {
+        return $this->commentsActus;
+    }
+
+    public function addCommentsActu(CommentsActu $commentsActu): self
+    {
+        if (!$this->commentsActus->contains($commentsActu)) {
+            $this->commentsActus[] = $commentsActu;
+            $commentsActu->setActu($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCommentsActu(CommentsActu $commentsActu): self
+    {
+        if ($this->commentsActus->removeElement($commentsActu)) {
+            // set the owning side to null (unless already changed)
+            if ($commentsActu->getActu() === $this) {
+                $commentsActu->setActu(null);
+            }
+        }
 
         return $this;
     }

@@ -64,11 +64,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $formations;
 
+    /**
+     * @ORM\OneToMany(targetEntity=FAQ::class, mappedBy="parent")
+     */
+    private $fAQs;
+
     public function __construct()
     {
         $this->blogs = new ArrayCollection();
         $this->actualites = new ArrayCollection();
         $this->formations = new ArrayCollection();
+        $this->fAQs = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -268,6 +274,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($formation->getParent() === $this) {
                 $formation->setParent(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, FAQ>
+     */
+    public function getFAQs(): Collection
+    {
+        return $this->fAQs;
+    }
+
+    public function addFAQ(FAQ $fAQ): self
+    {
+        if (!$this->fAQs->contains($fAQ)) {
+            $this->fAQs[] = $fAQ;
+            $fAQ->setParent($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFAQ(FAQ $fAQ): self
+    {
+        if ($this->fAQs->removeElement($fAQ)) {
+            // set the owning side to null (unless already changed)
+            if ($fAQ->getParent() === $this) {
+                $fAQ->setParent(null);
             }
         }
 

@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\BlogRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -36,6 +38,22 @@ class Blog
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="blogs")
      */
     private $parent;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Images::class, mappedBy="blog")
+     */
+    private $images;
+
+    /**
+     * @ORM\OneToMany(targetEntity=CommentsBlog::class, mappedBy="blog")
+     */
+    private $commentsBlogs;
+
+    public function __construct()
+    {
+        $this->images = new ArrayCollection();
+        $this->commentsBlogs = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -86,6 +104,66 @@ class Blog
     public function setParent(?User $parent): self
     {
         $this->parent = $parent;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Images>
+     */
+    public function getImages(): Collection
+    {
+        return $this->images;
+    }
+
+    public function addImage(Images $image): self
+    {
+        if (!$this->images->contains($image)) {
+            $this->images[] = $image;
+            $image->setBlog($this);
+        }
+
+        return $this;
+    }
+
+    public function removeImage(Images $image): self
+    {
+        if ($this->images->removeElement($image)) {
+            // set the owning side to null (unless already changed)
+            if ($image->getBlog() === $this) {
+                $image->setBlog(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, CommentsBlog>
+     */
+    public function getCommentsBlogs(): Collection
+    {
+        return $this->commentsBlogs;
+    }
+
+    public function addCommentsBlog(CommentsBlog $commentsBlog): self
+    {
+        if (!$this->commentsBlogs->contains($commentsBlog)) {
+            $this->commentsBlogs[] = $commentsBlog;
+            $commentsBlog->setBlog($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCommentsBlog(CommentsBlog $commentsBlog): self
+    {
+        if ($this->commentsBlogs->removeElement($commentsBlog)) {
+            // set the owning side to null (unless already changed)
+            if ($commentsBlog->getBlog() === $this) {
+                $commentsBlog->setBlog(null);
+            }
+        }
 
         return $this;
     }
