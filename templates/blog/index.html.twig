@@ -72,7 +72,7 @@
                         <!-- Card body -->
                         <div class="card-body">
                             <!-- Title -->
-                            <h5 class="card-title"><a  href=" {{ path('detail_blog',{'id':blog.id}) }}">{{ blog.title|u.truncate(30, '...', false) }}</a></h5>
+                            <h5 class="card-title"><a  href=" {{ path('blogs_app_view_blog',{'id':blog.id}) }}">{{ blog.title|u.truncate(30, '...', false) }}</a></h5>
                             <p>{{ blog.description|u.truncate(120, '...', false)  }}</p>
                             <!-- Info -->
                             <div class="d-flex justify-content-between">

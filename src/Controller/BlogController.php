@@ -28,20 +28,8 @@ class BlogController extends AbstractController
             8
         );
 
-
         return $this->render('blog/index.html.twig', [
             'blogs' => $blogs,
         ]);
-    }
-
-
-    /**
-     * @Route("/blogs/{id}", name="detail_blog")
-     */
-    public function details(int $id ,BlogRepository $blogRepository,EntityManagerInterface $entityManager, Request $request): Response
-    {
-        $blogs= $blogRepository->find($id);
-
-        return $this->render('blog/detail_blog.html.twig',["blogs"=>$blogs]);
     }
 }
