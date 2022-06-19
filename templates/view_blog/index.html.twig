@@ -94,17 +94,17 @@ Main Content START -->
 
 
                             <!-- Comment level 1-->
-                            {% for comments in blogs.commentsBlogs %}
-                            <div class="my-4 d-flex">
-                                <div>
-                                    <div class="mb-2">
-                                        <h5 class="m-0">{{ comments.prenom }} {{ comments.nom|upper }}</h5>
-                                        <span class="me-3 small">{{ comments.date|date('d-m-Y') }}</span>
+                                {% for comments in blogs.commentsBlogs %}
+                                <div class="my-4 d-flex">
+                                    <div>
+                                        <div class="mb-2">
+                                            <h5 class="m-0">{{ comments.prenom }} {{ comments.nom|upper }}</h5>
+                                            <span class="me-3 small">{{ comments.date|date('d-m-Y') }}</span>
+                                        </div>
+                                        <p>{{ comments.avis }}</p>
                                     </div>
-                                    <p>{{ comments.avis }}</p>
                                 </div>
-                            </div>
-                            {% endfor %}
+                                {% endfor %}
                         </div>
                         <!-- Comment END -->
 

@@ -31,8 +31,10 @@ class ViewBlogController extends AbstractController
                                       Request $request
                 ): Response
     {
+        #POUR OUVRUUR LE BLOG SUR LA PAGE AVEC L'ID#
         $blogs= $blogRepository->find($id);
 
+        #POUR FORMULAIRE DE COMMENTAIRES#
         $blogComment = new CommentsBlog();
         $form = $this->createForm(CommentsBlogType::class, $blogComment);
         $form->handleRequest($request);
@@ -40,8 +42,13 @@ class ViewBlogController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
 
+            #ON SET DATE D'AUJOURD'HUI ET L4ETAT A 0#
             $blogComment->setDate(new \DateTimeImmutable('now'));
+            $blogComment->setEtat("0");
 
+            #SA SERT POUR QUE LE COMMENTAIRE OBTIEN L'ID DU BLOG#
+            $id = $blogRepository->find($id);
+            $blogComment->setBlog($id);
 
             $em->persist($blogComment);
             $em->flush();
