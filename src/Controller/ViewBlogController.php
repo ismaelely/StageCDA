@@ -31,7 +31,7 @@ class ViewBlogController extends AbstractController
                                       Request $request
                 ): Response
     {
-        #POUR OUVRUUR LE BLOG SUR LA PAGE AVEC L'ID#
+        #POUR OUVRUUR LE BLOG SUR LA PAGE AVEC L'ID #
         $blogs= $blogRepository->find($id);
 
         #POUR FORMULAIRE DE COMMENTAIRES#
