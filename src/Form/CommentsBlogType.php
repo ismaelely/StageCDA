@@ -17,17 +17,24 @@ class CommentsBlogType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('nom', TextType::class)
-            ->add('prenom', TextType::class)
-            ->add('email', EmailType::class)
-            ->add('avis', TextType::class)
+            ->add('nom', TextType::class, [
+                'label' => false,
+            ])
+            ->add('prenom', TextType::class, [
+                'label' => false,
+            ])
+            ->add('email', EmailType::class, [
+                'label' => false,
+            ])
+            ->add('avis', TextareaType::class, [
+                'label' => false,
+            ])
             ->add('etat', HiddenType::class)
 
             ->add('date', HiddenType::class)
             ->add('blogid', HiddenType::class, [
                 'mapped' => false
             ])
-            ->add('Publier', SubmitType::class)
         ;
     }
 

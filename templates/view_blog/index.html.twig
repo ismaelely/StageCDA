@@ -115,7 +115,42 @@ Main Content START -->
                             <h3 class="mt-3 mt-sm-0">Votre avis nous interesse!</h3>
                             <small>Votre email ne sera pas publié. Les champs * sont obligatoires</small>
 
-                            {{ form(commentBlog) }}
+                            {{ form_start(commentBlog, {'attr': {'class': 'row g-3 mt-2 mb-5'}}) }}
+                            <!-- Name -->
+                            <div class="col-lg-6">
+
+                                <label class="form-label">Nom *</label>
+                                {{ form_row(commentBlog.nom, {'attr': {'class': 'form-control'}}) }}
+
+                            </div>
+
+                            <!-- Prenom -->
+                            <div class="col-lg-6">
+                                <label class="form-label">Prenom *</label>
+                                {{ form_row(commentBlog.prenom, {'attr': {'class': 'form-control'}}) }}
+
+
+
+                            </div>
+
+                            <!-- Email -->
+                            <div class="col-lg-20">
+                                <label class="form-label">Email *</label>
+                                {{ form_row(commentBlog.email, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+
+                            <!-- Comment -->
+                            <div class="col-12">
+                                <label class="form-label">Avis *</label>
+                                {{ form_row(commentBlog.avis, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+
+                            <!-- Button -->
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary mb-0">Publier</button>
+                            </div>
+
+                            {{ form_end(commentBlog)}}
 
                         </div>
                         <!-- Form END -->
