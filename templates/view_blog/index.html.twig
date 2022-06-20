@@ -1,6 +1,6 @@
 {% extends 'view.html.twig' %}
 
-{% block title %}Hello ViewBlogController!{% endblock %}
+{% block title %}{{ blogs.title|upper}}{% endblock %}
 
 {% block body %}
     <link rel="stylesheet" type="text/css" href="{{ asset("assets/vendor/font-awesome/css/all.min.css") }}">
@@ -25,10 +25,10 @@ Main Content START -->
                                 <div class="position-relative">
                                     <!-- Avatar -->
                                     <div class="avatar avatar-xxl">
-                                        <img class="avatar-img rounded-circle" src="assets/images/avatar/09.jpg" alt="avatar">
+                                        <img class="avatar-img rounded-circle" src="assets/images/event/04.jpg" alt="avatar">
                                     </div>
-                                    <a href="#" class="h5 stretched-link mt-2 mb-0 d-block">{{ user.lastname|upper }} <br> {{ user.firstname }}</a>
-                                    <p class="mb-2">Editeur chez AF2C</p>
+                                    <a class="h5 stretched-link mt-2 mb-0 d-block">{{ user_blog.firstname ?? '' }}</a>
+                                    <p class="mb-2">Collaborateur chez AF2C</p>
                                 </div>
 
                             </div>
@@ -98,7 +98,7 @@ Main Content START -->
                                 <div class="my-4 d-flex">
                                     <div>
                                         <div class="mb-2">
-                                            <h5 class="m-0">{{ comments.prenom }} {{ comments.nom|upper }}</h5>
+                                            <h5 class="m-0">{{ comments.prenom|lower }} {{ comments.nom|upper }}</h5>
                                             <span class="me-3 small">{{ comments.date|date('d-m-Y') }}</span>
                                         </div>
                                         <p>{{ comments.avis }}</p>
@@ -113,7 +113,7 @@ Main Content START -->
                         <div class="col-md-5">
                             <!-- Title -->
                             <h3 class="mt-3 mt-sm-0">Votre avis nous interesse!</h3>
-                            <small>Votre email ne sera pas publié. Les champs * sont obligatoires</small>
+                            <small>Votre email   oires</small>
 
                             {{ form_start(commentBlog, {'attr': {'class': 'row g-3 mt-2 mb-5'}}) }}
                             <!-- Name -->
@@ -170,32 +170,35 @@ Main Content START -->
             <!-- Title -->
             <div class="row mb-4">
                 <div class="col-12">
+
                     <h2 class="mb-0">Vous pouvez aimer aussi</h2>
                 </div>
             </div>
 
             <!-- Slider START -->
             <div class="tiny-slider arrow-round arrow-hover arrow-dark">
+
+
                 <div class="tiny-slider-inner" data-autoplay="false" data-arrow="true" data-edge="2" data-dots="false" data-items="3" data-items-lg="2" data-items-sm="1">
                     <!-- Slider item -->
-
+                    {% for allBlogs in allBlogs %}
                     <div class="card bg-transparent">
                         <div class="row g-0">
                             <!-- Image -->
                             <div class="col-md-4">
-                                <img src="assets/images/event/06.jpg" class="img-fluid rounded-start" alt="...">
+                                <img src="{{ asset('assets/images/event/04.jpg') }}" class="img-fluid rounded-start" alt="...">
                             </div>
                             <!-- Card body -->
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <!-- Title -->
-                                    <h6 class="card-title"><a href="#">{{ blogs.title }}</a></h6>
-                                    <span class="small">{{ blogs.date|date('d-m-Y') }}</span>
+                                    <h6 class="card-title"><a href="{{ path('blogs_app_view_blog',{'id':allBlogs.id}) }}">{{ allBlogs.title|u.truncate(45, '...', false) }}</a></h6>
+                                    <span class="small">{{ allBlogs.date|date('d-m-Y') }}</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-
+                    {% endfor %}
                 </div>
             </div>
             <!-- Slider END -->

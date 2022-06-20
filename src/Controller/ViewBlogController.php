@@ -31,6 +31,7 @@ class ViewBlogController extends AbstractController
                                       Request $request
                 ): Response
     {
+
         #POUR OUVRUUR LE BLOG SUR LA PAGE AVEC L'ID #
         $blogs= $blogRepository->find($id);
 
@@ -42,7 +43,7 @@ class ViewBlogController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
 
-            #ON SET DATE D'AUJOURD'HUI ET L4ETAT A 0#
+            #ON SET DATE D'AUJOURD'HUI ET L'ETAT A 0#
             $blogComment->setDate(new \DateTimeImmutable('now'));
             $blogComment->setEtat("0");
 
@@ -54,12 +55,10 @@ class ViewBlogController extends AbstractController
             $em->flush();
         }
 
-
-
-
         return $this->render('view_blog/index.html.twig', [
             "blogs"=>$blogs,
-            'user' => $userRepository ->find($id),
+            'allBlogs'=> $blogRepository -> findAll(),
+            'user_blog' => $userRepository ->find($id),
             'comments' => $commentsBlogRepository ->findAll(),
             'other' => $blogRepository ->findAll(),
             'commentBlog' => $form->createView()
