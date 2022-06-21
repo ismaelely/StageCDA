@@ -48,7 +48,7 @@ Page Banner START -->
                                             <a class="badge bg-danger text-white">Actu</a>
                                         </div>
                                         <!-- Title -->
-                                        <h5 class="card-title"><a href="#">{{ actualites.title|u.truncate(50, '...', false) }}</a></h5>
+                                        <h5 class="card-title"><a href="{{ path('actualites_app_view_actualites',{'id':actualites.id}) }}">{{ actualites.title|u.truncate(50, '...', false) }}</a></h5>
                                         <p class="mb-2 text-truncate-2">{{ actualites.description }}</p>
                                     </div>
                                     <!-- Card footer -->
