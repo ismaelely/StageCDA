@@ -96,7 +96,8 @@ Main Content START -->
 
                             <!-- Comment level 1-->
                                 {% for comments in blogs.commentsBlogs %}
-                                <div class="my-4 d-flex">
+                                    {% if comments.etat == 1 %}
+                                    <div class="my-4 d-flex">
                                     <div>
                                         <div class="mb-2">
                                             <h5 class="m-0">{{ comments.prenom|lower }} {{ comments.nom|upper }}</h5>
@@ -105,6 +106,7 @@ Main Content START -->
                                         <p>{{ comments.avis }}</p>
                                     </div>
                                 </div>
+                                    {% endif %}
                                 {% endfor %}
                         </div>
                         <!-- Comment END -->

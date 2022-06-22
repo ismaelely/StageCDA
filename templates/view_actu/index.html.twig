@@ -96,16 +96,19 @@ Main Content START -->
 
                             <!-- Comment level 1-->
                             {% for comments in actus.commentsActus %}
-                                <div class="my-4 d-flex">
-                                    <div>
-                                        <div class="mb-2">
-                                            <h5 class="m-0">{{ comments.prenom|lower }} {{ comments.nom|upper }}</h5>
-                                            <span class="me-3 small">{{ comments.date|date('d-m-Y') }}</span>
+                                {% if comments.etat == 1 %}
+                                    <div class="my-4 d-flex">
+                                        <div>
+                                            <div class="mb-2">
+                                                <h5 class="m-0">{{ comments.prenom|lower }} {{ comments.nom|upper }}</h5>
+                                                <span class="me-3 small">{{ comments.date|date('d-m-Y') }}</span>
+                                            </div>
+                                            <p>{{ comments.avis }}</p>
                                         </div>
-                                        <p>{{ comments.avis }}</p>
                                     </div>
-                                </div>
+                                {% endif %}
                             {% endfor %}
+
                         </div>
                         <!-- Comment END -->
 
