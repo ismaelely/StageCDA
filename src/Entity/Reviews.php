@@ -52,6 +52,11 @@ class Reviews
      */
     private $parent;
 
+    /**
+     * @ORM\Column(type="datetime_immutable")
+     */
+    private $date;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -137,6 +142,18 @@ class Reviews
     public function setParent(?Formations $parent): self
     {
         $this->parent = $parent;
+
+        return $this;
+    }
+
+    public function getDate(): ?\DateTimeImmutable
+    {
+        return $this->date;
+    }
+
+    public function setDate(\DateTimeImmutable $date): self
+    {
+        $this->date = $date;
 
         return $this;
     }

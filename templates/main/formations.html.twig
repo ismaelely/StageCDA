@@ -27,7 +27,7 @@ Courses START -->
                             <!-- Card body -->
                             <div class="card-body px-2">
                                 <h5 class="card-title">{{ formations.title }}</h5>
-                                <a href="#" class="btn btn-sm btn-danger mb-0">+ d'info</a>
+                                <a href="{{ path('formation_app_view_formations',{'id':formations.id}) }}" class="btn btn-sm btn-danger mb-0">+ d'info</a>
                             </div>
                         </div>
                     </div>
