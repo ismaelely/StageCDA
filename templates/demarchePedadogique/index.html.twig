@@ -1,15 +1,8 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello DemarchePedadogiqueController!{% endblock %}
+{% block title %}Démarche Dédagogique{% endblock %}
 
 {% block body %}
-    <link rel="stylesheet" type="text/css" href="{{ asset("assets/vendor/font-awesome/css/all.min.css") }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset("assets/vendor/bootstrap-icons/bootstrap-icons.css") }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset("assets/vendor/tiny-slider/tiny-slider.css") }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset("assets/vendor/glightbox/css/glightbox.css") }}">
-    <link id="style-switch" rel="stylesheet" type="text/css" href="{{ asset("assets/css/style.css") }}">
-
-
     <!-- **************** MAIN CONTENT START **************** -->
     <main>
         <!-- =======================
@@ -158,7 +151,7 @@
                                     <p class="mb-3 h5 fw-light lead">Découvrir tous nos programmes de formations
 
                                         .</p>
-                                    <a href="#" class="btn btn-warning mb-0">Decouvrir</a>
+                                    <a href="{{ path('app_formations') }}" class="btn btn-warning mb-0">Decouvrir</a>
                                 </div>
                             </div>
                         </div>
@@ -202,8 +195,7 @@
                                         <!-- Title -->
                                         <div class="col-lg-7">
                                             <h3 class="text-white mb-0">Si vous avez des questions, n'hesitez pas a nous contacter.</h3>
-                                            <p class="text-white small">Boost up your knowledge, grow your skill with the most reliable online courses and certifications</p>
-                                            <!-- List -->
+
 
                                         </div>
                                         <!-- Content and input -->

@@ -13,7 +13,7 @@ class DemarchePedadogiqueController extends AbstractController
      */
     public function index(): Response
     {
-        return $this->render('demarche_pedadogique/index.html.twig', [
+        return $this->render('demarchePedadogique/index.html.twig', [
             'controller_name' => 'DemarchePedadogiqueController',
         ]);
     }
