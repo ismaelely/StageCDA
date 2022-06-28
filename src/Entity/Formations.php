@@ -40,7 +40,7 @@ class Formations
     private $parent;
 
     /**
-     * @ORM\OneToMany(targetEntity=Reviews::class, mappedBy="parent")
+     * @ORM\OneToMany(targetEntity=Reviews::class, mappedBy="parent", cascade={"persist"}, orphanRemoval=true)
      */
     private $reviews;
 

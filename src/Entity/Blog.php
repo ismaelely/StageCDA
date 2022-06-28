@@ -45,7 +45,7 @@ class Blog
     private $images;
 
     /**
-     * @ORM\OneToMany(targetEntity=CommentsBlog::class, mappedBy="blog")
+     * @ORM\OneToMany(targetEntity=CommentsBlog::class, mappedBy="blog", cascade={"persist"}, orphanRemoval=true)
      */
     private $commentsBlogs;
 

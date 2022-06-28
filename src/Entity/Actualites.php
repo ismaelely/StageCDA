@@ -45,7 +45,7 @@ class Actualites
     private $images;
 
     /**
-     * @ORM\OneToMany(targetEntity=CommentsActu::class, mappedBy="actu")
+     * @ORM\OneToMany(targetEntity=CommentsActu::class, mappedBy="actu", cascade={"persist"}, orphanRemoval=true)
      */
     private $commentsActus;
 
