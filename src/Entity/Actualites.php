@@ -167,4 +167,9 @@ class Actualites
 
         return $this;
     }
+
+    public function _toString()
+    {
+        return $this->Title;
+    }
 }

@@ -2,7 +2,7 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Actualites;
+use App\Entity\Blog;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
@@ -10,19 +10,20 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 
-class ActualitesCrudController extends AbstractCrudController
+class BlogCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return Actualites::class;
+        return Blog::class;
     }
 
     public function configureCrud(Crud $crud): Crud
     {
         return $crud
             ->addFormTheme('@FOSCKEditor/Form/ckeditor_widget.html.twig')
-            ->setPageTitle('edit', 'Editer Actualité')
+            ->setPageTitle('edit', 'Editer le Blog')
             ;
+
     }
 
 

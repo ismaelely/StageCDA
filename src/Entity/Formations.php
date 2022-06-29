@@ -131,4 +131,9 @@ class Formations
 
         return $this;
     }
+
+    public function _toString()
+    {
+        return $this->Title;
+    }
 }
