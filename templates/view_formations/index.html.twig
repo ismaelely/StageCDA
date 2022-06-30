@@ -49,7 +49,7 @@
                     <!-- Main content START -->
                     <div class="col-lg-8">
 
-                        <p class="mt-4">{{ formations.description }}</p>
+                        <p class="mt-4">{{ formations.description|raw }}</p>
                         <!-- Personal info -->
                         <ul class="list-group list-group-borderless">
                             <li class="list-group-item px-0">
@@ -194,7 +194,7 @@
                                     <div class="overflow-hidden mb-4">
                                         <a href="{{ path('actualites_app_view_actualites',{'id':ActuLastThree.id}) }}" style="color:#747579;">
                                             <h6 class="uppercase">{{ ActuLastThree.title }}</h6>
-                                            <P class="mb-0 small">{{ ActuLastThree.description|u.truncate(80, '...', false)  }}</P>
+                                            <P class="mb-0 small">{{ ActuLastThree.description|u.truncate(80, '...', false)|raw  }}</P>
                                         </a>
                                     </div>
                                     {% endfor %}
@@ -208,7 +208,7 @@
                                     <div class="overflow-hidden mb-4">
                                         <a href="{{ path('blogs_app_view_blog',{'id':BlogLastThree.id}) }}" style="color:#747579;">
                                             <h6 class="uppercase">{{ BlogLastThree.title }}</h6>
-                                            <P class="mb-0 small">{{ BlogLastThree.description|u.truncate(80, '...', false)  }}</P>
+                                            <P class="mb-0 small">{{ BlogLastThree.description|u.truncate(80, '...', false)|raw  }}</P>
                                         </a>
                                     </div>
                                     {% endfor %}

@@ -22,6 +22,7 @@ class UserCrudController extends AbstractCrudController
     {
         return $crud
             ->addFormTheme('@FOSCKEditor/Form/ckeditor_widget.html.twig')
+            ->setPageTitle('index', 'Utilisateurs')
             ->setPageTitle('edit', 'Editer Utilisateur')
             ;
 

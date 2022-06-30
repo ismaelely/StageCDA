@@ -51,7 +51,7 @@ Page Banner START -->
                         <div class="card-body">
                             <!-- Title -->
                             <h5 class="card-title"><a  href=" {{ path('blogs_app_view_blog',{'id':blog.id}) }}">{{ blog.title|u.truncate(30, '...', false) }}</a></h5>
-                            <p>{{ blog.description|u.truncate(120, '...', false)  }}</p>
+                            <p>{{ blog.description|u.truncate(120, '...', false)|raw  }}</p>
                             <!-- Info -->
                             <div class="d-flex justify-content-between">
                                 <span class="h6 fw-light mb-0"><i class="far fa-clock text-danger me-2"></i>{{ blog.date|date('d-m-Y') }}</span>

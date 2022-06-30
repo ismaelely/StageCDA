@@ -11,9 +11,9 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
-use FOS\CKEditorBundle\Form\Type\CKEditorType;
 
 class CommentsBlogCrudController extends AbstractCrudController
 {
@@ -25,8 +25,7 @@ class CommentsBlogCrudController extends AbstractCrudController
     public function configureCrud(Crud $crud): Crud
     {
         return $crud
-            ->addFormTheme('@FOSCKEditor/Form/ckeditor_widget.html.twig')
-            ->setPageTitle('index', 'Commentaires visiteurs')
+            ->setPageTitle('index', 'Commentaires Blog')
             ->setPageTitle('edit', 'Editer le commentaire')
             ;
 
@@ -40,7 +39,8 @@ class CommentsBlogCrudController extends AbstractCrudController
             TextField::new('nom'),
             TextField::new('prenom'),
             EmailField::new('email')->OnlyOnForms(),
-            TextEditorField::new('avis')->setFormType(CKEditorType::class),
+            TextEditorField::new('avis')->hideOnForm(),
+            TextareaField::new('avis')->OnlyOnForms(),
             DateTimeField::new('date'),
             BooleanField::new('etat'),
         ];
