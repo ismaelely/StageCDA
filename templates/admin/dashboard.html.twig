@@ -2,9 +2,10 @@
 
 {% block content %}
 
-    <div>
-        <h1 class="display-4">Administration</h1>
-        <p class="lead">Bienvenue dans l'interface d'administration de votre site internet</p>
-    </div>
-
+    {% if app.user %}
+        <div>
+            <h1 class="display-4">Administration</h1>
+            <p class="lead">Bienvenue dans l'interface d'administration de votre site internet</p>
+        </div>
+    {% endif %}
 {% endblock %}
