@@ -14,6 +14,7 @@
         "doctrine/orm": "^2.12",
         "easycorp/easyadmin-bundle": "^3.5",
         "friendsofsymfony/ckeditor-bundle": "^2.4",
+        "helios-ag/fm-elfinder-bundle": "^12.1",
         "knplabs/knp-paginator-bundle": "^5.8",
         "phpdocumentor/reflection-docblock": "^5.3",
         "phpstan/phpdoc-parser": "^1.5",
@@ -48,8 +49,7 @@
         "symfony/yaml": "*",
         "twig/extra-bundle": "^2.12|^3.0",
         "twig/string-extra": "^3.4",
-        "twig/twig": "^2.12|^3.0",
-      "ext-libsodium": "*"
+        "twig/twig": "^2.12|^3.0"
     },
     "config": {
         "allow-plugins": {
@@ -82,7 +82,8 @@
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd",
-            "ckeditor:install": "symfony-cmd"
+            "ckeditor:install": "symfony-cmd",
+            "elfinder:install": "symfony-cmd"
         },
         "post-install-cmd": [
             "@auto-scripts"

@@ -14,76 +14,67 @@ Main Content START -->
 <main>
     <section class="pb-0 pt-4 pb-md-5">
         <div class="container">
-            <div class="row">
-                <div class="col-12">
+            <div class="row g-0 g-lg-5">
+                <div class="col-xl-8">
+                    <!-- Pre title -->
+                    <span>{{ actus.date|date('d-m-Y') }}</span>
+                    <span class="mx-2">|</span>
+                    <div class="badge bg-danger text-white">Actualité</div>
+                    <!-- Title -->
+                    <h2>{{ actus.title|upper }}</h2>
+                    <!-- Info -->
+                    <p> {{ actus.description|raw }}</p>
+                </div>
 
-                    <!-- Title and Info START -->
+                <!-- Left sidebar START -->
+                <div class="col-lg-4">
                     <div class="row">
-                        <!-- Avatar and Share -->
-                        <div class="col-lg-3 align-items-center mt-4 mt-lg-5 order-2 order-lg-1">
-                            <div class="text-lg-center">
-                                <!-- Author info -->
-                                <div class="position-relative">
-                                    <!-- Avatar -->
-                                    <div class="avatar avatar-xxl">
-                                        <img class="avatar-img rounded-circle" src="assets/images/event/04.jpg" alt="avatar">
-                                    </div>
-                                    <a class="h5 stretched-link mt-2 mb-0 d-block">{{ user_actu.firstname ?? '' }} {{ user_actu.lastname ?? '' }}</a>
-                                    <p class="mb-2">Collaborateur chez AF2C</p>
+                        <div class="col-md-6 col-lg-12">
+                            <!-- Instructor image START -->
+                            <div class="card shadow p-2 mb-4 text-center">
+                                <!-- Card body -->
+                                <div class="card-body px-3">
+                                    <!-- Rating -->
+                                    <h5>Partagez sur: </h5>
+                                    <!-- Social media button -->
+                                    <ul class="list-inline mb-0">
+                                        <li class="list-inline-item"><a class="btn px-2 btn-sm bg-facebook"  href="#">
+                                                <i class="fab fa-fw fa-facebook-f"></i></a></li>
+                                        <li class="list-inline-item"><a class="btn px-2 btn-sm bg-instagram-gradient" href="#">
+                                                <i class="fab fa-fw fa-instagram"></i></a></li>
+                                        <li class="list-inline-item"><a class="btn px-2 btn-sm bg-twitter" href="#">
+                                                <i class="fab fa-fw fa-twitter"></i></a></li>
+                                        <li class="list-inline-item"><a class="btn px-2 btn-sm bg-linkedin" href="#">
+                                                <i class="fab fa-fw fa-linkedin-in"></i></a></li>
+                                    </ul>
                                 </div>
+                            </div>
+                            <!-- Instructor image END -->
+                        </div>
 
+                        <div class="col-md-6 col-lg-12">
+                            <div class="card card-body shadow p-4 mb-4">
+
+                                <!-- Education START -->
+                                <!-- Title -->
+                                <h4 class="mb-3">Formations</h4>
+
+                                {% for formations in formations %}
+                                    <div style="margin-left: 15px;">
+                                        <a href="{{ path('formation_app_view_formations',{'id':formations.id}) }}" style="color:#747579;">
+                                            <h7> {{ formations.title|upper }}</h7>
+                                        </a>
+                                    </div>
+                                {% endfor %}
                             </div>
                         </div>
+                    </div> <!-- Row End -->
+                </div>
+                <!-- Left sidebar END -->
 
-                        <!-- Content -->
-                        <div class="col-lg-9 order-1">
-                            <!-- Pre title -->
-                            <span>{{ actus.date|date('d-m-Y') }}</span>
-                            <!-- Title -->
-                            <h1 class="mt-2 mb-0 display-5">{{ actus.title|upper}}</h1>
-                            <!-- Info -->
-                            <p class="mt-2"> {{ actus.description|raw }}</p>
-                        </div>
-                    </div>
-                    <!-- Title and Info END -->
 
-                    <!-- Image START -->
-                    <div class="row g-4 mt-4">
-                        <div class="col-sm-6 col-md-4">
-                            <a href="assets/images/event/07.jpg" data-glightbox data-gallery="image-popup">
-                                <img src="assets/images/event/07.jpg" class="rounded-3" alt="">
-                            </a>
-                        </div>
 
-                        <div class="col-sm-6 col-md-4">
-                            <a href="assets/images/event/08.jpg" data-glightbox data-gallery="image-popup">
-                                <img src="assets/images/event/08.jpg" class="rounded-3" alt="">
-                            </a>
-                        </div>
-
-                        <div class="col-sm-6 col-md-4">
-                            <a href="assets/images/event/06.jpg" data-glightbox data-gallery="image-popup">
-                                <img src="assets/images/event/06.jpg" class="rounded-3" alt="">
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Image END -->
-
-                    <!-- Tags and share START -->
-                    <div class="d-lg-flex justify-content-lg-between mb-4">
-                        <!-- Social media button -->
-                        <div class="align-items-center mb-3 mb-lg-0">
-                            <h6 class="mb-2 me-4 d-inline-block">Partager sur:</h6>
-                            <ul class="list-inline mb-0 mb-2 mb-sm-0">
-                                <li class="list-inline-item"> <a class="btn px-2 btn-sm bg-facebook" href="#"><i class="fab fa-fw fa-facebook-f"></i></a> </li>
-                                <li class="list-inline-item"> <a class="btn px-2 btn-sm bg-instagram-gradient" href="#"><i class="fab fa-fw fa-instagram"></i></a> </li>
-                                <li class="list-inline-item"> <a class="btn px-2 btn-sm bg-twitter" href="#"><i class="fab fa-fw fa-twitter"></i></a> </li>
-                                <li class="list-inline-item"> <a class="btn px-2 btn-sm bg-linkedin" href="#"><i class="fab fa-fw fa-linkedin-in"></i></a> </li>
-                            </ul>
-                        </div>
-
-                    </div>
-                    <!-- Tags and share END -->
+                <div class="col-12">
 
                     <hr> <!-- Divider -->
 

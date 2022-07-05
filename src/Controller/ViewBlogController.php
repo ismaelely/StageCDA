@@ -6,6 +6,7 @@ use App\Entity\CommentsBlog;
 use App\Form\CommentsBlogType;
 use App\Repository\BlogRepository;
 use App\Repository\CommentsBlogRepository;
+use App\Repository\FormationsRepository;
 use Symfony\Component\HttpFoundation\Request;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -26,8 +27,8 @@ class ViewBlogController extends AbstractController
      */
                 public function index(int $id,
                                       BlogRepository $blogRepository,
-                                      UserRepository $userRepository,
                                       CommentsBlogRepository $commentsBlogRepository,
+                                      FormationsRepository $formationsRepository,
                                       Request $request
                 ): Response
     {
@@ -58,9 +59,9 @@ class ViewBlogController extends AbstractController
         return $this->render('view_blog/index.html.twig', [
             "blogs"=>$blogs,
             'allBlogs'=> $blogRepository -> findAll(),
-            'user_blog' => $userRepository ->find($id),
             'comments' => $commentsBlogRepository ->findAll(),
             'other' => $blogRepository ->findAll(),
+            'formations'=> $formationsRepository ->findAll(),
             'commentBlog' => $form->createView()
 
         ]);

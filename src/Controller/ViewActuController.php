@@ -7,6 +7,7 @@ use App\Form\CommentsActuType;
 use App\Repository\ActualitesRepository;
 use App\Repository\BlogRepository;
 use App\Repository\CommentsActuRepository;
+use App\Repository\FormationsRepository;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -26,8 +27,8 @@ class ViewActuController extends AbstractController
      */
     public function index(int $id,
                           ActualitesRepository $actuRepository,
-                          UserRepository $userRepository,
                           CommentsActuRepository $commentsActuRepository,
+                          FormationsRepository $formationsRepository,
                           Request $request
     ): Response
     {
@@ -57,8 +58,8 @@ class ViewActuController extends AbstractController
         return $this->render('view_actu/index.html.twig', [
             "actus" => $actus,
             'allActus'=> $actuRepository -> findAll(),
-            'user_actu' => $userRepository ->find($id),
             'comments' => $commentsActuRepository ->findAll(),
+            'formations'=> $formationsRepository ->findAll(),
             'other' => $actuRepository ->findAll(),
             'commentBlog' => $form->createView()
         ]);
