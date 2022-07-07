@@ -6,9 +6,13 @@ use App\Entity\Formations;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class FormationsCrudController extends AbstractCrudController
 {
@@ -32,6 +36,10 @@ class FormationsCrudController extends AbstractCrudController
             TextField::new('title'),
             TextEditorField::new('description')->setFormType(CKEditorType::class),
             DateTimeField::new('date'),
+
+            TextField::new('imageFile')->setFormType(VichImageType::class)->onlyWhenCreating(),
+            ImageField::new('image')->setBasePath('/uploads/images/')->onlyOnIndex(),
+
         ];
     }
 }
