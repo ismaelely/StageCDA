@@ -33,7 +33,7 @@ class Formations
     private $Description;
 
     /**
-     * @ORM\Column(type="datetime_immutable")
+     * @ORM\Column(type="datetime")
      */
     private $Date;
 
@@ -95,12 +95,12 @@ class Formations
         return $this;
     }
 
-    public function getDate(): ?\DateTimeImmutable
+    public function getDate(): ?\DateTime
     {
         return $this->Date;
     }
 
-    public function setDate(\DateTimeImmutable $Date): self
+    public function setDate(\DateTime $Date): self
     {
         $this->Date = $Date;
 
