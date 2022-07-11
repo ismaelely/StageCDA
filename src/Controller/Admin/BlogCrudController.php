@@ -6,9 +6,11 @@ use App\Entity\Blog;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class BlogCrudController extends AbstractCrudController
 {
@@ -33,6 +35,10 @@ class BlogCrudController extends AbstractCrudController
             TextField::new('title'),
             TextEditorField::new('description')->setFormType(CKEditorType::class),
             DateTimeField::new('Date'),
+            
+            TextField::new('imageFile')->setFormType(VichImageType::class)->onlyWhenCreating(),
+            ImageField::new('image')->setBasePath('/uploads/images/')->onlyOnIndex(),
+
         ];
     }
 }
