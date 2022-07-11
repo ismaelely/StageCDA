@@ -44,7 +44,7 @@ class ViewFormationsController extends AbstractController
             $em = $this->getDoctrine()->getManager();
 
             #ON SET DATE D'AUJOURD'HUI ET L'ETAT A 0#
-            $formComment->setDate(new \DateTimeImmutable('now'));
+            $formComment->setDate(new \DateTime('now'));
 
             $formComment->setNote(1);
             $formComment->setEtat("0");

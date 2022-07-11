@@ -45,7 +45,7 @@ class ViewBlogController extends AbstractController
             $em = $this->getDoctrine()->getManager();
 
             #ON SET DATE D'AUJOURD'HUI ET L'ETAT A 0#
-            $blogComment->setDate(new \DateTimeImmutable('now'));
+            $blogComment->setDate(new \DateTime('now'));
             $blogComment->setEtat("0");
 
             #SA SERT POUR QUE LE COMMENTAIRE OBTIEN L'ID DU BLOG#

@@ -10,6 +10,7 @@ use App\Entity\FAQ;
 use App\Entity\Formations;
 use App\Entity\Reviews;
 use App\Entity\User;
+use App\Repository\FormationsRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;

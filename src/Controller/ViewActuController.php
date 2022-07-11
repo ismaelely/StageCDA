@@ -43,7 +43,7 @@ class ViewActuController extends AbstractController
             $em = $this->getDoctrine()->getManager();
 
             #ON SET DATE D'AUJOURD'HUI ET L'ETAT A 0#
-            $actuComment->setDate(new \DateTimeImmutable('now'));
+            $actuComment->setDate(new \DateTime('now'));
             $actuComment->setEtat("0");
 
             #SA SERT POUR QUE LE COMMENTAIRE OBTIEN L'ID DU BLOG#
