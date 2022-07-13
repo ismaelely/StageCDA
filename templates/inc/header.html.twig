@@ -4,9 +4,8 @@
     <nav class="navbar navbar-expand-xl">
         <div class="container-fluid px-3 px-xl-5">
             <!-- Logo START -->
-            <a class="navbar-brand" href="index.html">
-                <img class="light-mode-item navbar-brand-item" src="{{ asset('assets/images/logo.png') }}" alt="logo">
-                <img class="dark-mode-item navbar-brand-item" src="assets/images/logo-light.svg" alt="logo">
+            <a class="navbar-brand" href="{{ path('app_main') }}">
+                <h1 style="font-family: 'Righteous', cursive; color: #ff9900; margin-top:-20px; margin-bottom:-20px;">AF2C</h1>
             </a>
             <!-- Logo END -->
 
@@ -23,13 +22,13 @@
             <div class="navbar-collapse w-100 collapse" id="navbarCollapse">
                 <!-- Nav Main menu START -->
                 <ul class="navbar-nav navbar-nav-scroll ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index-4.html">Esprit AF2C</a></li>
-                    <li class="nav-item"><a class="nav-link" href="docs/alerts.html">Démarche pédadogique</a></li>
-                    <li class="nav-item"><a class="nav-link" href="index-4.html">L'équipe</a></li>
-                    <li class="nav-item"><a class="nav-link" href="docs/alerts.html">Financement de votre formation</a></li>
-                    <li class="nav-item"><a class="nav-link" href="index-4.html">Actualités</a></li>
-                    <li class="nav-item"><a class="nav-link" href="index-4.html">BLOG</a></li>
-                    <li class="nav-item"><a class="nav-link" href="index-4.html" style="margin-right: 10px">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ path('app_esprit') }}">Esprit AF2C</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ path('app_demarche_pedadogique') }}">Démarche pédadogique</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ path('app_equipe') }}">L'équipe</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ path('app_financement') }}">Financement de votre formation</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ path('app_actualites') }}">Actualités</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ path('app_blog') }}">BLOG</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ path('app_contact') }}" style="margin-right: 10px">Contact</a></li>
                 </ul>
                 <!-- Nav Main menu END -->
             </div>

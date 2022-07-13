@@ -1,0 +1,307 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ formations.title }}{% endblock %}
+
+{% block body %}
+    <link rel="stylesheet" type="text/css" href="{{ asset("assets/vendor/font-awesome/css/all.min.css") }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset("assets/vendor/bootstrap-icons/bootstrap-icons.css") }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset("assets/vendor/tiny-slider/tiny-slider.css") }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset("assets/vendor/glightbox/css/glightbox.css") }}">
+    <link id="style-switch" rel="stylesheet" type="text/css" href="{{ asset("assets/css/style.css") }}">
+
+
+    <!-- **************** MAIN CONTENT START **************** -->
+    <main>
+        <!-- =======================
+        Page intro START -->
+        <section class="bg-light py-0 py-sm-5">
+            <div class="container">
+                <div class="row py-5">
+                    <div class="">
+                        <!-- Badge -->
+                        <h6 class="mb-3 font-base bg-primary text-white py-2 px-4 rounded-2 d-inline-block">
+                            Formation</h6>
+                        <!-- Title -->
+                        <h1>{{ formations.title }}</h1>
+                        <!-- Content -->
+                        <ul class="list-inline mb-0">
+                            <li class="list-inline-item h6 me-3 mb-1 mb-sm-0"><i
+                                        class="bi bi-patch-exclamation-fill text-danger me-2"></i>Derniere modification
+                                le {{ formations.date|date('d-m-Y') }}
+                            </li>
+                            <li class="list-inline-item h6 mb-0"><i class="fas fa-globe text-info me-2"></i>Francais
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- =======================
+        Page intro END -->
+
+
+        <!-- =======================
+        Page content START -->
+        <section class="pt-5 pb-0">
+            <div class="container">
+                <div class="row g-0 g-lg-5">
+                    <!-- Main content START -->
+                    <div class="col-lg-8">
+
+                        <p class="mt-4">{{ formations.description|raw }}</p>
+                        <!-- Personal info -->
+                        <ul class="list-group list-group-borderless">
+                            <li class="list-group-item px-0">
+                                <span class="h6 fw-light"><i
+                                            class="fas fa-fw fa-map-marker-alt text-primary me-1 me-sm-3"></i>Address:</span>
+                                <span>2002 Horton Ford Rd, Eidson, TN, 37731</span>
+                            </li>
+                            <li class="list-group-item px-0">
+                                <span class="h6 fw-light"><i
+                                            class="fas fa-fw fa-envelope text-primary me-1 me-sm-3"></i>Email:</span>
+                                <span>example@gmail.com</span>
+                            </li>
+                            <li class="list-group-item px-0">
+                                <span class="h6 fw-light"><i
+                                            class="fas fa-fw fa-headphones text-primary me-1 me-sm-3"></i>Phone number:</span>
+                                <span>+896-789-546</span>
+                            </li>
+                        </ul>
+
+
+                        <!-- Counter START -->
+                        <div class="row mt-4 g-3">
+                            <!-- Counter item -->
+                            <div class="col-sm-6 col-lg-4">
+                                <div class="d-flex align-items-center">
+                                    <span class="icon-lg text-success mb-0 bg-success bg-opacity-10 rounded-3"><i
+                                                class="fas fa-play"></i></span>
+                                    <div class="ms-3">
+                                        <div class="d-flex">
+                                            <h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0"
+                                                data-purecounter-end="7" data-purecounter-delay="200">0</h5>
+                                            <span class="mb-0 h5">+</span>
+                                        </div>
+                                        <p class="mb-0 h6 fw-light">Formations</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Counter item -->
+                            <div class="col-sm-6 col-lg-4">
+                                <div class="d-flex align-items-center">
+                                    <span class="icon-lg text-purple bg-purple bg-opacity-10 rounded-3 mb-0"><i
+                                                class="fas fa-users"></i></span>
+                                    <div class="ms-3">
+                                        <div class="d-flex">
+                                            <h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0"
+                                                data-purecounter-end="1" data-purecounter-delay="200">0</h5>
+                                            <span class="mb-0 h5">K+</span>
+                                        </div>
+                                        <p class="mb-0 h6 fw-light">Etudiants satisfaits</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Counter item -->
+                            <div class="col-sm-6 col-lg-4">
+                                <div class="d-flex align-items-center">
+                                    <span class="icon-lg text-orange bg-orange bg-opacity-10 rounded-3 mb-0"><i
+                                                class="fas fa-trophy"></i></span>
+                                    <div class="ms-3">
+                                        <div class="d-flex">
+                                            <h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0"
+                                                data-purecounter-end="8" data-purecounter-delay="200">0</h5>
+                                            <span class="mb-0 h5">+</span>
+                                        </div>
+                                        <p class="mb-0 h6 fw-light">Années d'experience</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Counter END -->
+                        <br>
+                        <hr>
+                        <br>
+
+                        <!-- Course START -->
+                        <!-- Slider START -->
+                        <h3>Autres formations</h3>
+                        <br>
+                        <div class="tiny-slider arrow-round arrow-creative arrow-blur arrow-hover">
+                            <div class="tiny-slider-inner" data-autoplay="true" data-arrow="true" data-dots="false"
+                                 data-items="4" data-items-lg="3" data-items-md="2" data-items-xs="1">
+
+                                <!-- Card item START -->
+                                {% for allFormations in allFormations %}
+                                <div class="card bg-transparent">
+                                    <div class="position-relative">
+                                        <!-- Image -->
+                                        <img src="{{ vich_uploader_asset(allFormations, 'imageFile') }}" class="card-img"
+                                             alt="course image">
+                                    </div>
+                                    <!-- Card body -->
+                                    <div class="card-body text-center">
+                                        <!-- Title -->
+                                        <h8 class="card-title"><a style="color:#747579;" href="{{ path('formation_app_view_formations',{'id':allFormations.id}) }}">{{ allFormations.title }}</a></h8>
+                                    </div>
+                                </div>
+                                <!-- Card item END -->
+                                {% endfor %}
+
+                            </div>
+                        </div>
+                        <!-- Slider END -->
+                        <!-- Course END -->
+                    </div>
+                    <!-- Main content END -->
+
+                    <!-- Left sidebar START -->
+                    <div class="col-lg-4">
+                        <div class="row">
+                            <div class="col-md-6 col-lg-12">
+                                <!-- Instructor image START -->
+                                <div class="card shadow p-2 mb-4 text-center">
+                                    <!-- Card body -->
+                                    <div class="card-body px-3">
+                                        <!-- Rating -->
+                                        <h5>Partagez sur: </h5>
+                                        <!-- Social media button -->
+                                        <ul class="list-inline mb-0">
+                                            <li class="list-inline-item"><a class="btn px-2 btn-sm bg-facebook" href="#">
+                                                    <i class="fab fa-fw fa-facebook-f"></i></a></li>
+                                            <li class="list-inline-item"><a class="btn px-2 btn-sm bg-instagram-gradient" href="#">
+                                                    <i class="fab fa-fw fa-instagram"></i></a></li>
+                                            <li class="list-inline-item"><a class="btn px-2 btn-sm bg-twitter" href="#">
+                                                    <i class="fab fa-fw fa-twitter"></i></a></li>
+                                            <li class="list-inline-item"><a class="btn px-2 btn-sm bg-linkedin" href="#">
+                                                    <i class="fab fa-fw fa-linkedin-in"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- Instructor image END -->
+                            </div>
+
+                            <div class="col-md-6 col-lg-12">
+                                <div class="card card-body shadow p-4 mb-4">
+
+                                    <!-- Education START -->
+                                    <!-- Title -->
+                                    <h4 class="mb-3">Actualites</h4>
+
+                                    {% for ActuLastThree in ActuLastThree %}
+                                    <div class="overflow-hidden mb-4">
+                                        <a href="{{ path('actualites_app_view_actualites',{'id':ActuLastThree.id}) }}" style="color:#747579;">
+                                            <h6 class="uppercase">{{ ActuLastThree.title }}</h6>
+                                            <P class="mb-0 small">{{ ActuLastThree.description|u.truncate(80, '...', false)|raw  }}</P>
+                                        </a>
+                                    </div>
+                                    {% endfor %}
+
+                                    <hr> <!-- Divider -->
+
+                                    <!-- Skills START -->
+                                    <h4 class="mb-3">Blogs</h4>
+
+                                    {% for BlogLastThree in BlogLastThree %}
+                                    <div class="overflow-hidden mb-4">
+                                        <a href="{{ path('blogs_app_view_blog',{'id':BlogLastThree.id}) }}" style="color:#747579;">
+                                            <h6 class="uppercase">{{ BlogLastThree.title }}</h6>
+                                            <P class="mb-0 small">{{ BlogLastThree.description|u.truncate(80, '...', false)|raw  }}</P>
+                                        </a>
+                                    </div>
+                                    {% endfor %}
+
+                                </div>
+                            </div>
+                        </div> <!-- Row End -->
+                    </div>
+                    <!-- Left sidebar END -->
+
+                </div><!-- Row END -->
+            </div>
+        </section>
+        <!-- =======================
+        Page content END -->
+        <section class="pb-0 pt-4 pb-md-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <hr> <!-- Divider -->
+                        <!-- Comment review and form START -->
+                        <div class="row mt-4">
+                            <!-- Comment START -->
+                            <div class="col-md-7">
+                                <h3>Commentaires</h3>
+
+
+                                <!-- Comment level 1-->
+                                {% for comments in comments %}
+                                    {% if comments.etat == 1 %}
+                                        <div class="my-4 d-flex">
+                                            <div>
+                                                <div class="mb-2">
+                                                    <h5 class="m-0">{{ comments.firstname|lower }} {{ comments.lastname|upper }}</h5>
+                                                    <span class="me-3 small">{{ comments.date|date('d-m-Y') }}</span>
+                                                </div>
+                                                <p>{{ comments.avis }}</p>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </div>
+                            <!-- Comment END -->
+
+
+                            <!-- Form START -->
+                            <div class="col-md-5">
+                                <!-- Title -->
+                                <h3 class="mt-3 mt-sm-0">Votre avis nous interesse!</h3>
+                                <small>Votre email ne sera pas publié dans les commentaires</small>
+
+                                {{ form_start(commentFormation, {'attr': {'class': 'row g-3 mt-2 mb-5'}}) }}
+                                <!-- Name -->
+                                <div class="col-lg-6">
+                                    <label class="form-label">Nom *</label>
+                                    {{ form_row(commentFormation.lastname, {'attr': {'class': 'form-control'}}) }}
+                                </div>
+
+                                <!-- Prenom -->
+                                <div class="col-lg-6">
+                                    <label class="form-label">Prenom *</label>
+                                    {{ form_row(commentFormation.firstname, {'attr': {'class': 'form-control'}}) }}
+                                </div>
+
+                                <!-- Email -->
+                                <div class="col-lg-20">
+                                    <label class="form-label">Email *</label>
+                                    {{ form_row(commentFormation.email, {'attr': {'class': 'form-control'}}) }}
+                                </div>
+
+                                <!-- Comment -->
+                                <div class="col-12">
+                                    <label class="form-label">Avis *</label>
+                                    {{ form_row(commentFormation.Avis, {'attr': {'class': 'form-control'}}) }}
+                                </div>
+
+                                <!-- Button -->
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary mb-0">Publier</button>
+                                </div>
+
+                                {{ form_end(commentFormation)}}
+
+                            </div>
+                            <!-- Form END -->
+                        </div>
+                        <!-- Comment review and form END -->
+
+                    </div>
+                </div> <!-- Row END -->
+            </div>
+        </section>
+
+    </main>
+    <!-- **************** MAIN CONTENT END **************** -->
+
+{% endblock %}
