@@ -34,14 +34,14 @@ class ReviewsCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            AssociationField::new('parent')->hideOnForm(),
-            TextField::new('firstname'),
-            TextField::new('lastname'),
-            EmailField::new('email')->OnlyOnForms(),
-            TextEditorField::new('avis')->hideOnForm(),
-            TextareaField::new('avis')->OnlyOnForms(),
-            DateTimeField::new('date'),
-            BooleanField::new('etat'),
+            AssociationField::new('parent', 'Formation')->hideOnForm(),
+            TextField::new('firstname', 'Nom'),
+            TextField::new('lastname', 'Prenom'),
+            EmailField::new('email', 'Email')->OnlyOnForms(),
+            TextEditorField::new('avis', 'Avis')->hideOnForm(),
+            TextareaField::new('avis', 'Avis')->OnlyOnForms(),
+            DateTimeField::new('date', 'Date'),
+            BooleanField::new('etat', 'Etat'),
         ];
     }
 

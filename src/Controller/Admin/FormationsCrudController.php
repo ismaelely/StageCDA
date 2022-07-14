@@ -33,9 +33,9 @@ class FormationsCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new('title'),
-            TextEditorField::new('description')->setFormType(CKEditorType::class),
-            DateTimeField::new('date'),
+            TextField::new('title', 'Titre'),
+            TextEditorField::new('description', 'Description')->setFormType(CKEditorType::class),
+            DateTimeField::new('date', 'Date'),
 
             TextField::new('imageFile')->setFormType(VichImageType::class)->onlyWhenCreating(),
             ImageField::new('image')->setBasePath('/uploads/images/')->onlyOnIndex(),

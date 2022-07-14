@@ -29,9 +29,9 @@ class ActualitesCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new('title'),
-            TextEditorField::new('description')->setFormType(CKEditorType::class),
-            DateTimeField::new('Date'),
+            TextField::new('title', 'Titre'),
+            TextEditorField::new('description', 'Description')->setFormType(CKEditorType::class),
+            DateTimeField::new('Date', 'Date')
         ];
     }
 }

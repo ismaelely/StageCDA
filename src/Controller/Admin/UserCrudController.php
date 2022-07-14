@@ -10,6 +10,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
 class UserCrudController extends AbstractCrudController
 {
@@ -32,10 +33,16 @@ class UserCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new('Firstname'),
-            TextField::new('Lastname'),
+            TextField::new('Firstname', 'Prenom'),
+            TextField::new('Lastname','Nom'),
             EmailField::new('Email'),
-            TextField::new('Password')->hideOnIndex(),
+            TextField::new('password', 'Mot de passe')
+                ->setFormType(PasswordType::class)
+                ->setRequired($pageName === Crud::PAGE_NEW)
+                ->onlyOnForms()
+                ->hideOnIndex(),
         ];
     }
+
+
 }
