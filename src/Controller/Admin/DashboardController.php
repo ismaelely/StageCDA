@@ -6,11 +6,11 @@ use App\Entity\Actualites;
 use App\Entity\Blog;
 use App\Entity\CommentsActu;
 use App\Entity\CommentsBlog;
+use App\Entity\Contact;
 use App\Entity\FAQ;
 use App\Entity\Formations;
 use App\Entity\Reviews;
 use App\Entity\User;
-use App\Repository\FormationsRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -49,6 +49,9 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('F.A.Q', 'fa fa-question', FAQ::class);
 
         yield MenuItem::linkToCrud('Utilisateurs', 'fa fa-user', User::class);
+
+        yield MenuItem::linkToCrud('Contact', 'fa fa-envelope-open-o', Contact::class);
+
 
 
 

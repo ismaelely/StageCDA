@@ -29,7 +29,6 @@ class FAQ
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="fAQs")
-     * @ORM\JoinColumn(nullable=false)
      */
     private $parent;
 
